@@ -1,0 +1,347 @@
+/* ==========================================
+   GLASSMORPHISM + NEON THEME
+   Professional gaming platform styles
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Colors - Neon Gaming Palette */
+  --color-primary: #00F6FF; /* Cyan */
+  --color-secondary: #A855F7; /* Purple */
+  --color-accent: #EAB308; /* Gold */
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  
+  /* Backgrounds */
+  --bg-dark: #0B0E14;
+  --bg-darker: #070A10;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
+  
+  /* Glass effects */
+  --glass-blur: 24px;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-gaming: 'Orbitron', monospace;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  color: #E2E8F0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   GLASSMORPHISM UTILITIES
+   ========================================== */
+
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 246, 255, 0.15);
+}
+
+/* ==========================================
+   NEON GLOW EFFECTS
+   ========================================== */
+
+.neon-text {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 10px var(--color-primary),
+    inset 0 0 10px var(--color-primary);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-gaming);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--bg-dark);
+  box-shadow: 0 4px 20px rgba(0, 246, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 246, 255, 0.5);
+}
+
+.btn-secondary {
+  background: var(--bg-glass);
+  border: 1px solid var(--glass-border);
+  color: #E2E8F0;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--color-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-ghost:hover {
+  background: var(--color-primary);
+  color: var(--bg-dark);
+}
+
+/* ==========================================
+   CARDS & CONTAINERS
+   ========================================== */
+
+.card-game {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 60%, var(--bg-dark) 100%);
+  z-index: 1;
+}
+
+.card-game:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(0, 246, 255, 0.2);
+}
+
+.card-game img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================
+   CAROUSEL (XMB STYLE)
+   ========================================== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform var(--transition-slow);
+  padding: 2rem;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 350px;
+  height: 500px;
+  transition: all var(--transition-base);
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+   ========================================== */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bg-glass);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 246, 255, 0.8);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 280px;
+    height: 400px;
+  }
+  
+  .glass-panel {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+
+.text-gaming {
+  font-family: var(--font-gaming);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-lift {
+  transition: transform var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.focus-ring {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

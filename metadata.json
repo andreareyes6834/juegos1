@@ -1,0 +1,9 @@
+
+{
+  "name": "Abg. Wilson - Legal Hub Pro",
+  "description": "Plataforma integral de asesoría legal con sistema de suscripciones, seguimiento de causas y despacho virtual de alta tecnología.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
